@@ -18,8 +18,8 @@ const challenges = {
     hint: "The final flag is hidden in the response headers. Check the X-CTF-Flag header!"
   }
 };
+//aHR0cHM6Ly9saW5rdHIuZWUvcmlja2FzdGxleW5ldmVy
 
-// Hint: Look carefully — you will find a way to reach the flag. You may encounter some fake flags, but you are very close to the end.
 
 
 // Health check
