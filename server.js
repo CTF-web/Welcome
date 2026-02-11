@@ -28,39 +28,8 @@ const challenges = {
   }
 };
 
-// Routes
-app.get('/api/clue/:level', (req, res) => {
-  const level = req.params.level;
-  const challenge = challenges[`clue${level}`];
-  
-  if (challenge) {
-    // Easter egg: Add flag in header for advanced users
-    if (level === '3') {
-      res.setHeader('X-CTF-Flag', 'CTF{Y0u_F0und_Th3_H1dd3n_Fl4g_C0ngr4ts!}');
-    }
-    res.json(challenge);
-  } else {
-    res.status(404).json({ error: "Clue not found" });
-  }
-});
+// Hint: Look carefully — you will find a way to reach the flag. You may encounter some fake flags, but you are very close to the end.
 
-// Verification endpoint
-app.post('/api/verify', (req, res) => {
-  const { flag } = req.body;
-  const correctFlag = 'CTF{Y0u_F0und_Th3_H1dd3n_Fl4g_C0ngr4ts!}';
-  
-  if (flag === correctFlag) {
-    res.json({ 
-      success: true, 
-      message: "🎉 Congratulations! You've completed the CTF challenge!",
-    });
-  } else {
-    res.json({ 
-      success: false, 
-      message: "Incorrect flag. Keep searching!" 
-    });
-  }
-});
 
 // Health check
 app.get('/api/health', (req, res) => {
